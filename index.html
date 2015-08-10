@@ -22,8 +22,96 @@ h2{
 body {
 	color: blue;
 	}
+body,h1,h2,h3,p,td,quote,small,form,input,ul,li,ol,label{	/* resetting some elements for better browser compatibility */
+	margin:0px;
+	padding:0px;
+}
+
+body{	/* styling the body */
+	margin-top:20px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#51555C;
+	height:100%;
+	font-size:12px;
+}
+
+/* Navigation menu styles */
+
+ul{	/* the unordered list */
+	height:25px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+ul li{
+	border:1px solid #444444;
+	display:inline-block;	/* changing the display property */
+	float:left;	/* floating the list items to the left */
+	height:25px;
+	list-style-type:none;	/* disabling the list icon */
+	overflow:hidden;	/* hiding the overflowing content */
+}
+
+ul li a, ul li a:hover,
+ul li a:visited{
+	text-decoration:none;	/* removing the underline text-decoration */
+}
+
+/* styling the links */
+.normalMenu, .normalMenu:visited,
+.hoverMenu, .hoverMenu:visited,
+.selectedMenu,.selectedMenu:visited {/* these properties are shared between the classes */
+	outline:none;
+	padding:5px 10px;
+	display:block;
+}
+
+/* styles that are assigned individually */
+
+.hoverMenu,.hoverMenu:visited,
+.selectedMenu,.selectedMenu:visited {
+	margin-top:-25px;
+	background:url(img/grey_bg.gif) repeat-x #eeeeee;
+	color:#444444;
+}
+
+.selectedMenu,.selectedMenu:visited {
+	margin:0;
+}
+
+.normalMenu, .normalMenu:visited{
+	color:white;
+	background:url(img/dark_bg.gif) repeat-x #444444;
+}
 </style>
 
+<script>
+	$(document).ready(function(){
+// executed after the page has finished loading
+
+	$('#navigationMenu li .normalMenu').each(function(){	// for each menu item
+
+		// create a duplicate hyperlink and position it above the current one
+		$(this).before($(this).clone().removeClass().addClass('hoverMenu'));
+
+	});
+
+	$('#navigationMenu li').hover(function(){	// using the hover method..
+
+		// we assign an action on mouse over
+		$(this).find('.hoverMenu').stop().animate({marginTop:'0px'},200);
+		// the animate method provides countless possibilities
+
+	},
+
+	function(){
+		// and an action on mouse out
+		$(this).find('.hoverMenu').stop().animate({marginTop:'-25px'},200);
+
+	});
+
+});
+</script>
 <body>
 	
 
@@ -36,6 +124,17 @@ body {
 		Pocket Doc
 	</h1> 
 </div> 
+
+<div id="menu-container">
+	<ul id="navigationMenu">
+		<li><a href="#mobile" class="normalMenu">Home</a></li>
+		<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+		<li><a href="#allergies" class="selectedMenu">Allergies</a></li>
+		<li><a href="#personal history" class="normalMenu">Personal History</a></li>
+		<li><a href="#calendar" class="normalMenu">Calendar</a></li>
+		<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+	</ul>
+</div>
 
 <div data-role="content"> <!--content-->
 	<a href="#mobile">
