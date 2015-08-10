@@ -7,90 +7,93 @@
 	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 	<link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8">
 	<link href='http://fonts.googleapis.com/css?family=Arvo|Rokkitt' rel='stylesheet' type='text/css'>
-		<title>Pocket Doc</title>
-		<!--picture on tab--> <link rel="icon" type="image/png" href="PocketDoc.PNG">
+	<link rel="icon" type="image/png" href="PocketDoc.PNG"> <!--picture on tab--> 
+		<title>
+			Pocket Doc
+		</title>
 </head>
+
 <style>
-h1{
-	font-family:'Arvo', serif;
-	text-align:center;
+	h1{
+		font-family:'Arvo', serif;
+		text-align:center;
+		}
+	h2{
+		font-family:'Arvo', serif;
+		text-align: center;
+		font-size: medium;
+		color: gray;
 	}
-h2{
-	font-family:'Arvo', serif;
-	text-align: center;
-	font-size: medium;
-	color: gray;
-}
-body {
-	color: blue;
+	body {
+		color: blue;
+		}
+	body,h1,h2,h3,p,td,quote,small,form,input,ul,li,ol,label{	/* resetting some elements for better browser compatibility */
+		margin:0px;
+		padding:0px;
 	}
-body,h1,h2,h3,p,td,quote,small,form,input,ul,li,ol,label{	/* resetting some elements for better browser compatibility */
-	margin:0px;
-	padding:0px;
-}
 
-body{	/* styling the body */
-	margin-top:5%;
-	font-family:'Arvo', serif
-	color:#99BDFA;
-	height:10%;
-	font-size:1 em;
-}
+	body{	/* styling the body */
+		margin-top:5%;
+		font-family:'Arvo', serif
+		color:#99BDFA;
+		height:10%;
+		font-size:1 em;
+	}
 
-/* Navigation menu styles */
+	/* Navigation menu styles */
 
-ul{	/* the unordered list */
-	height:10%;
-	font-family:'Arvo', serif;
-	font-size:1 em;
-	text-align: center;
-}
+	ul{	/* the unordered list */
+		height:10%;
+		font-family:'Arvo', serif;
+		font-size:1 em;
+		text-align: center;
+	}
 
-ul li{
-	border:1px solid #99BDFA;
-	/*display:inline-block; changing the display property */
-	float:center;	/* floating the list items to the left */
-	height:10%;
-	list-style-type:none;	/* disabling the list icon */
-	overflow:hidden;	/* hiding the overflowing content */
-}
+	ul li{
+		border:1px solid #99BDFA;
+		/*display:inline-block; changing the display property */
+		float:center;	/* floating the list items to the left */
+		height:10%;
+		list-style-type:none;	/* disabling the list icon */
+		overflow:hidden;	/* hiding the overflowing content */
+	}
 
-ul li a, ul li a:hover,
-ul li a:visited{
-	text-decoration:none;
-	/* removing the underline text-decoration */
-}
+	ul li a, ul li a:hover,
+	ul li a:visited{
+		text-decoration:none;
+		/* removing the underline text-decoration */
+	}
 
-/* styling the links */
-.normalMenu, .normalMenu:visited,
-.hoverMenu, .hoverMenu:visited,
-.selectedMenu,.selectedMenu:visited {/* these properties are shared between the classes */
-	outline:none;
-	padding:5px 10px;
-	display:block;
-}
+	/* styling the links */
+	.normalMenu, .normalMenu:visited,
+	.hoverMenu, .hoverMenu:visited,
+	.selectedMenu,.selectedMenu:visited {/* these properties are shared between the classes */
+		outline:none;
+		padding:5px 10px;
+		display:block;
+	}
 
-/* styles that are assigned individually */
+	/* styles that are assigned individually */
 
-.hoverMenu,.hoverMenu:visited,
-.selectedMenu,.selectedMenu:visited {
-	margin-top:-25px;
-	color:#99BDFA;
-}
+	.hoverMenu,.hoverMenu:visited,
+	.selectedMenu,.selectedMenu:visited {
+		margin-top:-25px;
+		color:#99BDFA;
+	}
 
-.selectedMenu,.selectedMenu:visited {
-	margin:0;
-	background-color:#D8D8D8;
-}
+	.selectedMenu,.selectedMenu:visited {
+		margin:0;
+		background-color:#D8D8D8;
+	}
 
-.normalMenu, .normalMenu:visited{
-	color:white;
-}
+	.normalMenu, .normalMenu:visited{
+		color:white;
+	}
 </style>
 
 <script>
 	$(document).ready(function(){
-// executed after the page has finished loading
+	//executed after the page has finished loading
 
 	$('#navigationMenu li').hover(function(){	// using the hover method..
 
@@ -108,71 +111,75 @@ ul li a:visited{
 
 });
 </script>
-<body>
-	
 
 <!-- Start of first page -->
 <!-- header -->
-<div data-role="page" id="mobile">
-<div data-role="header" data-theme="b">
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
-	<h1> 
-		Pocket Doc
-	</h1> 
-</div> 
+<div data-role="page" id="mobile">
+	<div data-role="header" data-theme="b">
+		<h1> 
+			Pocket Doc
+		</h1> 
+	</div> 
+	<div id="menu-container">
+		<ul id="navigationMenu">
+			<li><a href="#mobile" class="selectedMenu">Home</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
+			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+		</ul>
+	</div>
 
-<div id="menu-container">
-	<ul id="navigationMenu">
-		<li><a href="#mobile" class="selectedMenu">Home</a></li>
-		<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
-		<li><a href="#allergies" class="normalMenu">Allergies</a></li>
-		<li><a href="#personal history" class="normalMenu">Personal History</a></li>
-		<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
-		<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
-	</ul>
-</div>
+	<div data-role="content"> <!--content-->
+		<h2>
+			Pocket Doc is a mobile web app that enables users to quickly retrieve all of the information needed to complete doctors'
+			forms and answer questions about personal and family medical history. Users will create an account unique to them and 
+			input personal history such as: vaccines and shots they have had, any allergies they might have, and medicines and medications
+			they take or have taken before, as well as keep track of doctors' appointments using a calendar. </br>
+			Pocket Doc is unique because users have complete control over how much information they would like to keep in the app. 
+			In the future, Pocket Doc will have a feature that enables families to share as much or as little information with each other using a passcode
+			specific to the family. This feature is extremely helpful for parents who have children who like to keep track of their
+			own medical history and for children who are in college.
+		</h2>
+	</div>
 
-<div data-role="content"> <!--content-->
-<h2>
-	Pocket Doc is a mobile web app that enables users to quickly retrieve all of the information needed to complete doctors'
-	forms and answer questions about personal and family medical history. Users will create an account unique to them and 
-	input personal history such as: vaccines and shots they have had, any allergies they might have, and medicines and medications
-	they take or have taken before, as well as keep track of doctors' appointments using a calendar. Pocket Doc is unique
-	because users have complete control over how much information they would like to keep in the app. In the future, Pocket
-	Doc will have a feature that enables families to share as much or as little information with each other using a passcode
-	specific to the family. This feature is extremely helpful for parents who have children who like to keep track of their
-	own medical history and for children who are in college.
-</h2>
-</div>
-
-<div data-role="footer" data-theme="b"> <!--foother-->
-	<h1>Girls Who Code 2015 </h1>
-</div>
+	<div data-role="footer" data-theme="b"> <!--footer-->
+		<h1>
+			Girls Who Code 2015
+		</h1>
+	</div>
 </div>
 
 <!--Start of second page-->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="vaccines">
-<div data-role="header" data-theme="b">
-		<h1>Vaccines</h1>
+	<div data-role="header" data-theme="b">
+		<h1>
+			Vaccines
+		</h1>
 	</div>
 	<div id="menu-container">
-	<ul id="navigationMenu">
-		<li><a href="#mobile" class="normalMenu">Home</a></li>
-		<li><a href="#vaccines" class="selectedMenu">Vaccines and Shots</a></li>
-		<li><a href="#allergies" class="normalMenu">Allergies</a></li>
-		<li><a href="#personal history" class="normalMenu">Personal History</a></li>
-		<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
-		<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
-	</ul>
-</div>
+		<ul id="navigationMenu">
+			<li><a href="#mobile" class="normalMenu">Home</a></li>
+			<li><a href="#vaccines" class="selectedMenu">Vaccines and Shots</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
+			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+		</ul>
+	</div>
 
 	<div data-role="content"> <!--content-->
 
-</div>
+	</div>
+	
 	<div data-role="footer" data-theme="b">
-	<h1>Girls Who Code 2015 </h1>
-</div>
+		<h1>
+			Girls Who Code 2015
+		</h1>
+	</div>
 </div>
 
 <!--Start of third page-->
@@ -192,223 +199,242 @@ ul li a:visited{
 	</ul>
 </div>
 
-<div data-role="content"> <!--content-->
-
-</div>
+	<div data-role="content"> <!--content-->
+	</div>
 	<div data-role="footer" data-theme="b">
-	<h1>Girls Who Code 2015 </h1>
-</div>
+		<h1>
+			Girls Who Code 2015
+		</h1>
+	</div>
 </div>
 
 <!--Start of fourth page-->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="personal history">
 	<div data-role="header" data-theme="b">
-		<h1>History</h1>
+		<h1>
+			History
+		</h1>
 	</div>
 	<div id="menu-container">
-	<ul id="navigationMenu">
-		<li><a href="#mobile" class="normalMenu">Home</a></li>
-		<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
-		<li><a href="#allergies" class="normalMenu">Allergies</a></li>
-		<li><a href="#personal history" class="selectedMenu">Personal History</a></li>
-		<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
-		<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
-	</ul>
-</div>
-
-<div data-role="content"> <!--content-->
-
-<body>
-
-	<div class="pics" align="center">
-	<img src = "avatar.png" style = "width:30%;height:30%;border:0">
-
-<!--name-->
-<form action="action_page.php" method="GET">
-<h2>
-First Name:<br>
-<input type="text" name="firstname" value="">
-<br>
-Last Name:<br>
-<input type="text" name="lastname" value="">
-<br>
-Middle Name Initial:<br>
-<input type="text" name="middlename" value="">
-<br>
-<!--DOB-->
-Date Of Birth:<br>
-<input type="text" name="dob" value="">
-<br>
-
-<!--SEX-->
-
-Gender At Birth:<br>
-<input type="text" name="sexatbirth" value="">
-<br>
-
-Gender Identified With:
-<input type="text" name="sex" value="">
-<br>
-
-<!--RACE/ETH-->
-
-Race:<br>
-<input type="text" name="race" value="">
-<br>
-Ethnicity:<br>
-<input type="text" name="ethnicity" value="">
-<br>
-Blood Type:<br>
-<input type="text" name="bloodtype" value="">
-<br>
-Marital Status:<br>
-<input type="text" name="maritalstatus" value="">
-<br>
-Primary Language:<br>
-<input type="text" name="primarylanguage" value="">
-<br>
-
-Address:<br>
-<input type="text" name="address" value="">
-<br>
-
-Home Phone Number (if applicable):<br>
-<input type="text" name="dob" value="">
-
-Mobile Number:<br>
-<input type="text" name="race" value="">
-<br>
-
-Driver's License Number: <br>
-<input type= "text" name="dln" value="">
-<br>
-
-State On Driver's License: <br>
-<input type="text" name="state" value="">
-<br>
-
-Expiration Date: <br>
-<input type= "text" name="exp" value="">
-<br>
-
-Social Security Number:<br>
-<input type="text" name="ss" value="">
-<br>
-Email: <br>
-<input type= "text" name="email" value="">
-<br>
-Spouse (first, last, middle initial):<br>
-<input type="text" name="spouse" value="">
-<br>
-Pharmacy Of Choice(name, city):<br>
-<input type= "text" name="poc" value="">
-<br>
-Pharmacy Telephone: <br>
-<input type="text" name="phartele" value="">
-<br>
-Emergency Contact:<br>
-<input type= "text" name="ec" value="">
-<br>
-Emergency Contact Telephone Number: <br>
-<input type="text" name="ectele" value="">
-<br>
-
-</p>
-<input type="submit" value="Save">
-
-</form> 
-</h2>
-
-</body>
-	</a>
+		<ul id="navigationMenu">
+			<li><a href="#mobile" class="normalMenu">Home</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#personal history" class="selectedMenu">Personal History</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
+			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+		</ul>
 	</div>
+
+	<div data-role="content"> <!--content-->
+
+		<div class="pics" align="center">
+		<img src = "avatar.png" style = "width:30%;height:30%;border:0">
+
+	<!--name-->
+		<form action="action_page.php" method="GET">
+		<h2>
+			First Name:<br>
+				<input type="text" name="firstname" value="">
+			<br>
+			Last Name:<br>
+				<input type="text" name="lastname" value="">
+			<br>
+			Middle Name Initial:<br>
+				<input type="text" name="middlename" value="">
+			<br>
+			<!--DOB-->
+			Date Of Birth:<br>
+				<input type="text" name="dob" value="">
+			<br>
+
+		<!--SEX-->
+
+			Gender At Birth:<br>
+				<input type="text" name="sexatbirth" value="">
+			<br>
+
+			Gender Identified With:
+				<input type="text" name="sex" value="">
+			<br>
+
+		<!--RACE/ETH-->
+
+			Race:<br>
+				<input type="text" name="race" value="">
+			<br>
+			Ethnicity:<br>
+				<input type="text" name="ethnicity" value="">
+			<br>
+			Blood Type:<br>
+				<input type="text" name="bloodtype" value="">
+			<br>
+			Marital Status:<br>
+				<input type="text" name="maritalstatus" value="">
+			<br>
+			Primary Language:<br>
+				<input type="text" name="primarylanguage" value="">
+			<br>
+
+			Address:<br>
+				<input type="text" name="address" value="">
+			<br>
+
+			Home Phone Number (if applicable):<br>
+				<input type="text" name="dob" value="">
+
+			Mobile Number:<br>
+				<input type="text" name="race" value="">
+			<br>
+			Driver's License Number: <br>
+				<input type= "text" name="dln" value="">
+			<br>
+
+			State On Driver's License: <br>
+				<input type="text" name="state" value="">
+			<br>
+			
+			Expiration Date: <br>
+				<input type= "text" name="exp" value="">
+			<br>
+			
+			Social Security Number:<br>
+				<input type="text" name="ss" value="">
+			<br>
+			
+			Email: <br>
+				<input type= "text" name="email" value="">
+			<br>
+			
+			Spouse (first, last, middle initial):<br>
+				<input type="text" name="spouse" value="">
+			<br>
+			
+			Pharmacy Of Choice(name, city):<br>
+				<input type= "text" name="poc" value="">
+			<br>
+			
+			Pharmacy Telephone: <br>
+				<input type="text" name="phartele" value="">
+			<br>
+			
+			Emergency Contact:<br>
+				<input type= "text" name="ec" value="">
+			<br>
+
+			Emergency Contact Telephone Number: <br>
+				<input type="text" name="ectele" value="">
+			<br>
+			</p>
+			
+			<input type="submit" value="Save">
+
+		</h2> 
+		</form>
+		</div>
+	
 	<div data-role="footer" data-theme="b">
-	<h1>Girls Who Code 2015 </h1>
-</div>
+		<h1>
+			Girls Who Code 2015
+		</h1>
+	</div>
+	</div>
 </div>
 
 <!--Start of fifth page-->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="calendar">
 	<div data-role="header" data-theme="b">
-		<h1>Calendar</h1>
+		<h1>
+			Calendar
+		</h1>
 	</div>
 	<div id="menu-container">
-	<ul id="navigationMenu">
-		<li><a href="#mobile" class="normalMenu">Home</a></li>
-		<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
-		<li><a href="#allergies" class="normalMenu">Allergies</a></li>
-		<li><a href="#personal history" class="normalMenu">Personal History</a></li>
-		<li><a href="#calendar" class="selectedMenu">Calendar and Doctor Appointments</a></li>
-		<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
-	</ul>
-</div>
+		<ul id="navigationMenu">
+			<li><a href="#mobile" class="normalMenu">Home</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
+			<li><a href="#calendar" class="selectedMenu">Calendar and Doctor Appointments</a></li>
+			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+		</ul>
+	</div>
 
-<div data-role="content"> <!--content-->
-
-</div>
+	<div data-role="content"> <!--content-->
+	</div>
 
 	<div data-role="footer" data-theme="b">
-	<h1>Girls Who Code 2015 </h1>
+		<h1>
+			Girls Who Code 2015
+		</h1>
+	</div>
 </div>
-</div>
+
 <!--Start of sixth page-->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="medicines">
 	<div data-role="header" data-theme="b">
-		<h1>Medicines</h1>
+		<h1>
+			Medicines
+		</h1>
 	</div>
 	<div id="menu-container">
-	<ul id="navigationMenu">
-		<li><a href="#mobile" class="normalMenu">Home</a></li>
-		<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
-		<li><a href="#allergies" class="normalMenu">Allergies</a></li>
-		<li><a href="#personal history" class="normalMenu">Personal History</a></li>
-		<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
-		<li><a href="#medicines" class="selectedMenu">Medicines and Medications</a></li>
-	</ul>
-</div>
-<div data-role="content"> <!--content-->
+		<ul id="navigationMenu">
+			<li><a href="#mobile" class="normalMenu">Home</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
+			<li><a href="#medicines" class="selectedMenu">Medicines and Medications</a></li>
+		</ul>
+	</div>
+	<div data-role="content"> <!--content-->
+		<form action="action_page.php" method="GET">
+		<h2>
+			Medicine Name:<br>
+				<input type="text" name="medicinename" value="">
+			<br>
+			
+			Dosage:<br>
+				<input type="text" name="dosage" value="">
+			<br>
+			
+			Frequency Of Use:<br>
+				<input type="text" name="frequencyofuse" value="">
+			<br>
+			
+			<!--DOB-->
+			Date Prescribed:<br>
+				<input type="text" name="dateprescribed" value="">
+			<br>
 
-<form action="action_page.php" method="GET">
-<h2>
-Medicine Name:<br>
-<input type="text" name="medicinename" value="">
-<br>
-Dosage:<br>
-<input type="text" name="dosage" value="">
-<br>
-Frequency Of Use:<br>
-<input type="text" name="frequencyofuse" value="">
-<br>
-<!--DOB-->
-Date Prescribed:<br>
-<input type="text" name="dateprescribed" value="">
-<br>
-
-Date Of Expiration:<br>
-<input type="text" name="dateofexpiration" value="">
-<br>
-Physician:<br>
-<input type="text" name="physician" value="">
-<br>
-Purpose Of Use:<br>
-<input type="text" name="purposeofuse" value="">
-<br>
-Comments:<br>
-<input type="text" name="comments" value="">
-<br><br>
-
-</p>
-<input type="submit" value="Save">
-</h2>
-</form>
+			Date Of Expiration:<br>
+			`	<input type="text" name="dateofexpiration" value="">
+			<br>
+			
+			Physician:<br>
+				<input type="text" name="physician" value="">
+			<br>
+			
+			Purpose Of Use:<br>
+				<input type="text" name="purposeofuse" value="">
+			<br>
+			
+			Comments:<br>
+				<input type="text" name="comments" value="">
+			<br><br>
+			</p>
+			
+			<input type="submit" value="Save">
+		</h2>
+		</form>
 	<div data-role="footer" data-theme="b">
-	<h1>Girls Who Code 2015 </h1>
-</div>
-</div>
+		<h1>
+			Girls Who Code 2015
+		</h1>
+	</div>
+	</div>
 </div>
 
-</body>
 </html>	
