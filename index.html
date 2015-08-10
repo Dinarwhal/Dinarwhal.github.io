@@ -72,6 +72,7 @@ ul li a:visited{
 .hoverMenu,.hoverMenu:visited,
 .selectedMenu,.selectedMenu:visited {
 	margin-top:-25px;
+	background:url(img/grey_bg.gif) repeat-x #eeeeee;
 	color:#99BDFA;
 }
 
@@ -81,6 +82,7 @@ ul li a:visited{
 
 .normalMenu, .normalMenu:visited{
 	color:white;
+	background:url(img/dark_bg.gif) repeat-x #444444;
 }
 </style>
 
@@ -88,12 +90,6 @@ ul li a:visited{
 	$(document).ready(function(){
 // executed after the page has finished loading
 
-	$('#navigationMenu li .normalMenu').each(function(){	// for each menu item
-
-		// create a duplicate hyperlink and position it above the current one
-		$(this).before($(this).clone().removeClass().addClass('hoverMenu'));
-
-	});
 
 	$('#navigationMenu li').hover(function(){	// using the hover method..
 
