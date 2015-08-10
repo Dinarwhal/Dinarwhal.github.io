@@ -227,6 +227,29 @@
 	#cal #cal-frame table.curr { 
 	    float:right; 
 	}
+	div {
+		background-colour:black;
+		colour: white;
+	}
+	div.box {
+		height: 200px;
+		width: 500px;
+	}
+	body {
+		background-color:black;
+	        color: white;
+	}
+	.pics {
+	align:center;
+	}
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	th, td {
+	    padding: 5px;
+	    text-align: left;
+	}
 </style>
 
 <script>
@@ -370,6 +393,7 @@ cal.init();
 			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
 			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 		</ul>
 	</div>
 
@@ -409,6 +433,7 @@ cal.init();
 			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
 			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 		</ul>
 	</div>
 
@@ -450,6 +475,7 @@ cal.init();
 		<li><a href="#personal history" class="normalMenu">Personal History</a></li>
 		<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 		<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+		<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 	</ul>
 </div>
 
@@ -510,6 +536,7 @@ cal.init();
 			<li><a href="#personal history" class="selectedMenu">Personal History</a></li>
 			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 		</ul>
 	</div>
 
@@ -644,6 +671,7 @@ cal.init();
 			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
 			<li><a href="#calendar" class="selectedMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 		</ul>
 	</div>
 
@@ -709,6 +737,7 @@ cal.init();
 			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
 			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="selectedMenu">Medicines and Medications</a></li>
+			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 		</ul>
 	</div>
 	<div data-role="content"> <!--content-->
@@ -758,6 +787,92 @@ cal.init();
 			Girls Who Code 2015
 		</h1>
 	</div>
+		</div>
+	</div>
+</div>
+<!--Page 7-->
+<link rel="icon" type="image/png" href="PocketDoc.PNG">
+<div data-role="page" id="alert">
+	<div data-role="header" data-theme="b">
+		<h1>
+			Medicine/Appointments
+		</h1>
+	</div>
+	<div id="menu-container">
+		<ul id="navigationMenu">
+			<li><a href="#mobile" class="normalMenu">Home</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
+			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#alert" class="selectedMenu">New Medicine/Appointment Alert</a></li>
+		</ul>
+	</div>
+	<div data-role="content"> <!--content-->
+		<h2>
+		<table style="width:100%">
+  		<caption>New Medicine Alert</caption>
+		<br><br>
+		<tr>
+	    		<th>Name</th>
+	    		<th>Date</th>
+			<th>Time</th>
+			<th>AM/PM</th>
+			<th>Dosage</th>
+		</tr>
+  		<tr>
+			<td><input type="text" name="info" value= ""></td>
+			<td><input type="text" name="info" value= ""></td>
+			<td><input type="text" name="info" value= ""></td>
+			<td><input type="text" name="info" value= ""></td>
+			<td><input type="text" name="info" value= ""></td>
+		</tr>
+		<tr>
+  
+		<td></td>
+		<td></td>
+		<td></td>
+    		<td></td>
+		<td></td>
+		</tr>
+		</table>
+	<input type="submit" value="Save">
+
+<!--table2-->
+<table style="width:100%">
+  <caption>New Doctor Appointment Alert</caption>
+  <br><br>
+  <tr>
+    <th>Location</th>
+    <th>Date</th>
+	<th>Time</th>
+	<th>Name of Doctor</th>
+	<th>Notes</th>
+  </tr>
+  <tr>
+    <td><input type="text" name="info" value= ""></td>
+    <td><input type="text" name="info" value= ""></td>
+	<td><input type="text" name="info" value= ""></td>
+	<td><input type="text" name="info" value= ""></td>
+	<td><input type="text" name="info" value= ""></td>
+  </tr>
+  <tr>
+  
+    <td></td>
+    <td></td>
+	<td></td>
+    <td></td>
+	<td></td>
+  </tr>
+</table>
+<input type="submit" value="Save">
+	<div data-role="footer" data-theme="b">
+		<h1>
+			Girls Who Code 2015
+		</h1>
+	</div>
+		</div>
 	</div>
 </div>
 
