@@ -27,9 +27,7 @@
 		font-size: medium;
 		color: gray;
 	}
-	body {
-		color: blue;
-		}
+	
 	body,h1,h2,h3,p,td,quote,small,form,input,ul,li,ol,label{	/* resetting some elements for better browser compatibility */
 		margin:0px;
 		padding:0px;
@@ -40,6 +38,7 @@
 		color:#99BDFA;
 		height:10%;
 		font-size:1 em;
+		background: url(picture.png) no-repeat;
 	}
 	/* Navigation menu styles */
 	ul{	/* the unordered list */
@@ -83,9 +82,6 @@
 		color:white;
 	}
 	
-	body {
-		background: #e0e0e0; 
-	}
 	#cal {
 	  margin: 50px  auto; 
 	  font: 13px/1.5 "Helvetica Neue", Helvetica, Arial, san-serif; 
@@ -250,13 +246,13 @@
 	    	padding: 5px;
 	    	text-align: left;
 	}
-	body {
+/*	body {
 		background-color: #f4f4f4;
 		color: #5a5656;
 		font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 		font-size: 16px;
 		line-height: 1.5em;
-	}
+	}*/
 	a { text-decoration: none; }
 	h2 { font-size: 1em; }
 	h2, p {
@@ -501,6 +497,7 @@ cal.init();
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="signin">
 	<body>
+		</picture>
 	<div id="login">
 		<h2>
 		<strong>
@@ -533,9 +530,10 @@ cal.init();
 <!-- header -->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="mobile">
+	<body>
 	<div data-role="header" data-theme="b">
 		<h1> 
-			Pocket Doc
+			Pocket Doc!
 		</h1> 
 	</div> 
 	<div id="menu-container">
@@ -570,11 +568,13 @@ cal.init();
 			Pocket Doc. All rights reserved.
 		</h1>
 	</div>
+	</body>
 </div>
 
 <!--Start of second page-->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="vaccines">
+	<body>
 	<div data-role="header" data-theme="b">
 		<h1>
 			Vaccines
@@ -613,11 +613,13 @@ cal.init();
 			Pocket Doc. All rights reserved.
 		</h1>
 	</div>
+	</body>
 </div>
 
 <!--Start of third page-->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="allergies">
+	<body>
 	<div data-role="header" data-theme="b">
 		<h1>
 			Allergies
@@ -675,11 +677,14 @@ cal.init();
 		</h1>
 	</div>
 	</div>
+	</body>
+	
 </div>
 
 <!--Start of fourth page-->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="personal history">
+	<body>
 	<div data-role="header" data-theme="b">
 		<h1>
 			History
@@ -811,11 +816,13 @@ cal.init();
 		</h1>
 	</div>
 	</div>
+	</body>
 </div>
 
 <!--Start of fifth page-->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="calendar">
+	<body>
 	<div data-role="header" data-theme="b">
 		<h1>
 			Calendar
@@ -878,11 +885,13 @@ cal.init();
 			Pocket Doc. All rights reserved.
 		</h1>
 	</div>
+	</body>
 </div>
 
 <!--Start of sixth page-->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="medicines">
+	<body>
 	<div data-role="header" data-theme="b">
 		<h1>
 			Medicines
@@ -949,10 +958,12 @@ cal.init();
 	</div>
 		</div>
 	</div>
+	</body>
 </div>
 <!--Page 7-->
 <link rel="icon" type="image/png" href="PocketDoc.PNG">
 <div data-role="page" id="alert">
+	<body>
 	<div data-role="header" data-theme="b">
 		<h1>
 			Alerts
@@ -1045,8 +1056,6 @@ cal.init();
 			Pocket Doc. All rights reserved.
 		</h1>
 	</div>
-		</div>
-	</div>
+	</body>
 </div>
-
 </html>
