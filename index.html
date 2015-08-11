@@ -402,85 +402,83 @@
 	 
 		} 
 	 
-		    function switchMonth(next, month, year) { 
+		function switchMonth(next, month, year) { 
 			var curr = label.text().trim().split(" "), calendar, tempYear =  parseInt(curr[1], 10); 
-	
-		month = month || ((next) ? ( (curr[0] === "December") ? 0 : months.indexOf(curr[0]) + 1 ) : ( (curr[0] === "January") ? 11 : months.indexOf(curr[0]) - 1 )); 
-		year = year || ((next && month === 0) ? tempYear + 1 : (!next && month === 11) ? tempYear - 1 : tempYear);
+			month = month || ((next) ? ( (curr[0] === "December") ? 0 : months.indexOf(curr[0]) + 1 ) : ( (curr[0] === "January") ? 11 : months.indexOf(curr[0]) - 1 )); 
+			year = year || ((next && month === 0) ? tempYear + 1 : (!next && month === 11) ? tempYear - 1 : tempYear);
+			console.profile("createCal");
+			calendar=createCal(year,month);
+			console.profileEnd("createCal");
 		
-		console.profile("createCal");
-		calendar=createCal(year,month);
-		console.profileEnd("createCal");
-		
-		$("#cal-frame",wrap)
-		    .find(".curr")
-			     .removeClass("curr")
-				 .addClass("temp")
-		     .end()
-			 .prepend(calendar.calendar())
-	         .find(".temp")
-	             .fadeOut("slow", function(){$(this).remove();});
-	        label.text(calendar.label);
-			}
+			$("#cal-frame",wrap)
+			.find(".curr")
+			.removeClass("curr")
+			.addClass("temp")
+			.end()
+			.prepend(calendar.calendar())
+	         	.find(".temp")
+	             	.fadeOut("slow", function(){$(this).remove();});
+			label.text(calendar.label);
+		}
 	function createCal(year,month){
 		var day = 1, i, j, haveDays = true,  
 		        startDay = new Date(year, month, day).getDay(), 
 		        daysInMonths = [31, (((year%4==0)&&(year%100!=0))||(year%400==0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], 
 		        calendar = [];
-	    if (createCal.cache[year]) { 
-		    if (createCal.cache[year][month]) { 
-		        return createCal.cache[year][month]; 
-		    } 
-		} else { 
-		    createCal.cache[year] = {}; 
+		if (createCal.cache[year]) { 
+			if (createCal.cache[year][month]) { 
+				return createCal.cache[year][month]; 
+			} 
+		} 
+		else { 
+			createCal.cache[year] = {}; 
 		}
 		i = 0; 
-		while (haveDays) { 
-		    calendar[i] = []; 
-		    for (j = 0; j < 7; j++) { 
-		        if (i === 0) { 
-		            if (j === startDay) { 
-		                calendar[i][j] = day++; 
-		                startDay++; 
-		            } 
-		        } else if (day <= daysInMonths[month]) { 
-		            calendar[i][j] = day++; 
-		        } else { 
-		            calendar[i][j] = ""; 
-		            haveDays = false; 
-		        } 
-		        if (day > daysInMonths[month]) { 
-		            haveDays = false; 
-		        } 
-		    } 
+			while (haveDays) { 
+				calendar[i] = []; 
+				for (j = 0; j < 7; j++) { 
+				        if (i === 0) { 
+				       		if (j === startDay) { 
+				                	calendar[i][j] = day++; 
+				                	startDay++; 
+				        	} 
+				        } 
+				        else if (day <= daysInMonths[month]) { 
+				        	calendar[i][j] = day++; 
+				        } 
+				        else { 
+				       		calendar[i][j] = ""; 
+				        	haveDays = false; 
+				        } 
+				        if (day > daysInMonths[month]) { 
+				            	haveDays = false; 
+				        } 
+			    	} 
 		    i++; 
-		}
+			}	
 	
 		if (calendar[5]) { 
-		    for (i = 0; i < calendar[5].length; i++) { 
-		        if (calendar[5][i] !== "") { 
-		            calendar[4][i] = "<span>" + calendar[4][i] + "</span><span>" + calendar[5][i] + "</span>"; 
-		        } 
-		    } 
-		    calendar = calendar.slice(0, 5); 
+		    	for (i = 0; i < calendar[5].length; i++) { 
+		        	if (calendar[5][i] !== "") { 
+		            	calendar[4][i] = "<span>" + calendar[4][i] + "</span><span>" + calendar[5][i] + "</span>"; 
+		        	} 
+		    	} 
+			calendar = calendar.slice(0, 5); 
 		} 
 		for (i = 0; i < calendar.length; i++) { 
-		    calendar[i] = "<tr><td>" + calendar[i].join("</td><td>") + "</td></tr>"; 
+		    	calendar[i] = "<tr><td>" + calendar[i].join("</td><td>") + "</td></tr>"; 
 		} 
+		
 		calendar = $("<table>" + calendar.join("") + "</table>").addClass("curr"); 
 	/*$('#some_id').click(function() {
 	  window.location='history.html';
 	});*/
-	
-	
-	
-	 
 		$("td:empty", calendar).addClass("nil"); 
-		if (month === new Date().getMonth()) { 
-		    $('td', calendar).filter(function () { return $(this).text() === new Date().getDate().toString(); }).addClass("today"); 
-		} 
+			if (month === new Date().getMonth()) { 
+		    	$('td', calendar).filter(function () { return $(this).text() === new Date().getDate().toString(); }).addClass("today"); 
+			}
 		createCal.cache[year][month] = { calendar : function () { return calendar.clone() }, label : months[month] + " " + year }; 
-	 return createCal.cache[year][month];
+	 	return createCal.cache[year][month];
 }
 
 
@@ -543,12 +541,14 @@ cal.init();
 	<div id="menu-container">
 		<ul id="navigationMenu">
 			<li><a href="#mobile" class="selectedMenu">Home</a></li>
-			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
-			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#signin" class="normalMenu">Log In</a></li>
 			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
-			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
+			
 		</ul>
 	</div>
 
@@ -583,11 +583,12 @@ cal.init();
 	<div id="menu-container">
 		<ul id="navigationMenu">
 			<li><a href="#mobile" class="normalMenu">Home</a></li>
-			<li><a href="#vaccines" class="selectedMenu">Vaccines and Shots</a></li>
-			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#signin" class="normalMenu">Log In</a></li>
 			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
-			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#vaccines" class="selectedMenu">Vaccines and Shots</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 		</ul>
 	</div>
@@ -624,13 +625,14 @@ cal.init();
 	</div>
 	<div id="menu-container">
 	<ul id="navigationMenu">
-		<li><a href="#mobile" class="normalMenu">Home</a></li>
-		<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
-		<li><a href="#allergies" class="selectedMenu">Allergies</a></li>
-		<li><a href="#personal history" class="normalMenu">Personal History</a></li>
-		<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
-		<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
-		<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
+			<li><a href="#mobile" class="normalMenu">Home</a></li>
+			<li><a href="#signin" class="normalMenu">Log In</a></li>
+			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
+			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#allergies" class="selectedMenu">Allergies</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
+			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 	</ul>
 </div>
 
@@ -686,11 +688,12 @@ cal.init();
 	<div id="menu-container">
 		<ul id="navigationMenu">
 			<li><a href="#mobile" class="normalMenu">Home</a></li>
-			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
-			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#signin" class="normalMenu">Log In</a></li>
 			<li><a href="#personal history" class="selectedMenu">Personal History</a></li>
-			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 		</ul>
 	</div>
@@ -821,11 +824,12 @@ cal.init();
 	<div id="menu-container">
 		<ul id="navigationMenu">
 			<li><a href="#mobile" class="normalMenu">Home</a></li>
-			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
-			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#signin" class="normalMenu">Log In</a></li>
 			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
-			<li><a href="#calendar" class="selectedMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#calendar" class="selectedMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 		</ul>
 	</div>
@@ -887,11 +891,12 @@ cal.init();
 	<div id="menu-container">
 		<ul id="navigationMenu">
 			<li><a href="#mobile" class="normalMenu">Home</a></li>
-			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
-			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#signin" class="normalMenu">Log In</a></li>
 			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
-			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="selectedMenu">Medicines and Medications</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#alert" class="normalMenu">New Medicine/Appointment Alert</a></li>
 		</ul>
 	</div>
@@ -956,11 +961,12 @@ cal.init();
 	<div id="menu-container">
 		<ul id="navigationMenu">
 			<li><a href="#mobile" class="normalMenu">Home</a></li>
-			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
-			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#signin" class="normalMenu">Log In</a></li>
 			<li><a href="#personal history" class="normalMenu">Personal History</a></li>
-			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#medicines" class="normalMenu">Medicines and Medications</a></li>
+			<li><a href="#allergies" class="normalMenu">Allergies</a></li>
+			<li><a href="#vaccines" class="normalMenu">Vaccines and Shots</a></li>
+			<li><a href="#calendar" class="normalMenu">Calendar and Doctor Appointments</a></li>
 			<li><a href="#alert" class="selectedMenu">New Medicine/Appointment Alert</a></li>
 		</ul>
 	</div>
